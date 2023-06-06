@@ -5,6 +5,9 @@ import ListGroup from "./components/ListGroup";
 import Like from "./components/Like";
 import Message from "./components/Message";
 import produce from "immer";
+import NavBar from "./components/NavBar";
+import Cart from "./components/Cart";
+import ExpandableText from "./components/ExpandableText";
 
 function AppListGroup() {
   let players = ["Kohli", "Rohit", "Dhoni", "Jadeja", "Yuvaraj"];
@@ -70,7 +73,7 @@ function AppLike() {
   );
 }
 
-function App() {
+function AppState() {
   const [isVisible, setVisibility] = useState(false);
 
   const [person, setPerson] = useState({
@@ -130,6 +133,54 @@ function AppMessage() {
       <Message></Message>
       <Message></Message>
     </>
+  );
+}
+
+function AppCartState() {
+  const [cartItems, setCartItems] = useState(["product1", "product2"]);
+
+  return (
+    <>
+      <div>
+        <NavBar cartItemsCount={cartItems.length}></NavBar>
+        <Cart cartItems={cartItems} onClear={() => setCartItems([])}></Cart>
+      </div>
+    </>
+  );
+}
+
+function AppGameState() {
+  const [game, setGame] = useState({ id: 1, player: { name: "John" } });
+
+  const handleClick = () => {
+    setGame({ ...game, player: { ...game.player, name: "Bob" } });
+  };
+
+  return (
+    <>
+      <div>{game.player.name}</div>
+      <button onClick={handleClick}>Click Me</button>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <ExpandableText>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus iure
+        consequuntur totam fuga ducimus culpa voluptas nulla. Qui ipsum
+        excepturi et molestias quae. Ratione numquam ea veniam ipsa, fugiat
+        impedit accusantium iure provident eum corrupti alias magnam maiores ut
+        cupiditate qui cumque praesentium! Corrupti obcaecati velit dignissimos
+        cumque alias magni nemo. Natus eum cupiditate consequatur animi
+        voluptatem maiores! Ut animi voluptas assumenda. Voluptas nulla commodi
+        eaque culpa fugiat quam, perferendis sapiente ex tempora. Tenetur
+        consequatur necessitatibus deleniti corporis perspiciatis corrupti quae
+        voluptate dolore eaque. Laudantium error expedita similique nulla
+        sapiente quas, quasi natus, aperiam vitae, fugit corporis sed nam eaque?
+      </ExpandableText>
+    </div>
   );
 }
 
