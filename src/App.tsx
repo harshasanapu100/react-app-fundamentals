@@ -8,6 +8,7 @@ import produce from "immer";
 import NavBar from "./components/NavBar";
 import Cart from "./components/Cart";
 import ExpandableText from "./components/ExpandableText";
+import FormUsingRefHook from "./components/FormUsingRefHook";
 
 function AppListGroup() {
   let players = ["Kohli", "Rohit", "Dhoni", "Jadeja", "Yuvaraj"];
@@ -164,7 +165,7 @@ function AppGameState() {
   );
 }
 
-function App() {
+function AppExpandable() {
   return (
     <div>
       <ExpandableText>
@@ -182,6 +183,10 @@ function App() {
       </ExpandableText>
     </div>
   );
+}
+
+function App() {
+  return <FormUsingRefHook></FormUsingRefHook>;
 }
 
 export default App;
