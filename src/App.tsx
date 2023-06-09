@@ -9,6 +9,8 @@ import NavBar from "./components/NavBar";
 import Cart from "./components/Cart";
 import ExpandableText from "./components/ExpandableText";
 import FormUsingRefHook from "./components/FormUsingRefHook";
+import FormUsingStateHook from "./components/FormUsingStateHook";
+import ReactHookForm from "./components/ReactHookForm";
 
 function AppListGroup() {
   let players = ["Kohli", "Rohit", "Dhoni", "Jadeja", "Yuvaraj"];
@@ -185,8 +187,16 @@ function AppExpandable() {
   );
 }
 
-function App() {
+function AppFormUsingRefHook() {
   return <FormUsingRefHook></FormUsingRefHook>;
+}
+
+function AppFormUsingStateHook() {
+  return <FormUsingStateHook></FormUsingStateHook>;
+}
+
+function App() {
+  return <ReactHookForm></ReactHookForm>;
 }
 
 export default App;
