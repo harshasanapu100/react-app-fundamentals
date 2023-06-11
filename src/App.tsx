@@ -13,7 +13,7 @@ import FormUsingStateHook from "./components/FormUsingStateHook";
 import ReactHookForm from "./components/ReactHookForm";
 import ExpenseList from "./components/expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter";
-import FormValidationUsingYup from "./components/FormValidationUsingYup";
+import FormValidationUsingZod from "./components/FormValidationUsingZod";
 
 function AppListGroup() {
   let players = ["Kohli", "Rohit", "Dhoni", "Jadeja", "Yuvaraj"];
@@ -203,7 +203,7 @@ function AppReactHookForm() {
 }
 
 function App() {
-  return <FormValidationUsingYup></FormValidationUsingYup>;
+  return <FormValidationUsingZod></FormValidationUsingZod>;
 }
 
 export default App;
