@@ -11,6 +11,9 @@ import ExpandableText from "./components/ExpandableText";
 import FormUsingRefHook from "./components/FormUsingRefHook";
 import FormUsingStateHook from "./components/FormUsingStateHook";
 import ReactHookForm from "./components/ReactHookForm";
+import ExpenseList from "./components/expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter";
+import FormValidationUsingYup from "./components/FormValidationUsingYup";
 
 function AppListGroup() {
   let players = ["Kohli", "Rohit", "Dhoni", "Jadeja", "Yuvaraj"];
@@ -195,8 +198,12 @@ function AppFormUsingStateHook() {
   return <FormUsingStateHook></FormUsingStateHook>;
 }
 
-function App() {
+function AppReactHookForm() {
   return <ReactHookForm></ReactHookForm>;
+}
+
+function App() {
+  return <FormValidationUsingYup></FormValidationUsingYup>;
 }
 
 export default App;
