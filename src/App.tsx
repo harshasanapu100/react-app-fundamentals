@@ -14,6 +14,7 @@ import ReactHookForm from "./components/ReactHookForm";
 import ExpenseList from "./components/expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter";
 import FormValidationUsingZod from "./components/FormValidationUsingZod";
+import ExpenseForm from "./components/expense-tracker/components/ExpenseForm";
 
 function AppListGroup() {
   let players = ["Kohli", "Rohit", "Dhoni", "Jadeja", "Yuvaraj"];
@@ -202,8 +203,48 @@ function AppReactHookForm() {
   return <ReactHookForm></ReactHookForm>;
 }
 
-function App() {
+function AppFormValidationUsingZod() {
   return <FormValidationUsingZod></FormValidationUsingZod>;
 }
 
+function App() {
+  const [expenses, setExpenses] = useState([
+    { id: 1, description: "Movie", amount: 100, category: "Entertainment" },
+    { id: 2, description: "Soap", amount: 50, category: "Groceries" },
+    { id: 3, description: "Power Bill", amount: 350, category: "Utilities" },
+    { id: 4, description: "Cricket", amount: 70, category: "Entertainment" },
+  ]);
+
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const visibleExpenses = selectedCategory
+    ? expenses.filter((e) => e.category == selectedCategory)
+    : expenses;
+
+  return (
+    <>
+      <div className="mb-5">
+        <ExpenseForm
+          onSubmit={(newExpense) =>
+            setExpenses([
+              ...expenses,
+              { ...newExpense, id: expenses.length + 1 },
+            ])
+          }
+        ></ExpenseForm>
+      </div>
+      <div className="mb-3">
+        <ExpenseFilter
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        ></ExpenseFilter>
+      </div>
+      <ExpenseList
+        expenses={visibleExpenses}
+        onDelete={(id) => {
+          setExpenses(expenses.filter((e) => e.id != id));
+        }}
+      ></ExpenseList>
+    </>
+  );
+}
 export default App;

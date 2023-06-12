@@ -10,7 +10,7 @@ const schema = z
         required_error: "Name is required",
       })
       .min(3, { message: "Name must be minimu 3 characters length" })
-      .max(5, { message: "Name must be minimu 5 characters length" }),
+      .max(5, { message: "Name must be maximum 20 characters length" }),
     age: z
       .number({
         invalid_type_error: "Age is required",
