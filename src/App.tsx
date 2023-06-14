@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
@@ -15,6 +15,8 @@ import ExpenseList from "./components/expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter";
 import FormValidationUsingZod from "./components/FormValidationUsingZod";
 import ExpenseForm from "./components/expense-tracker/components/ExpenseForm";
+import UseEffectHook from "./components/UseEffectHookExample";
+import FetchingUsersData from "./components/FetchingUsersData";
 
 function AppListGroup() {
   let players = ["Kohli", "Rohit", "Dhoni", "Jadeja", "Yuvaraj"];
@@ -207,7 +209,7 @@ function AppFormValidationUsingZod() {
   return <FormValidationUsingZod></FormValidationUsingZod>;
 }
 
-function App() {
+function AppExpenseTracker() {
   const [expenses, setExpenses] = useState([
     { id: 1, description: "Movie", amount: 100, category: "Entertainment" },
     { id: 2, description: "Soap", amount: 50, category: "Groceries" },
@@ -247,4 +249,27 @@ function App() {
     </>
   );
 }
+
+function AppUseEffect() {
+  const [cateogry, setCateogry] = useState("");
+
+  return (
+    <div>
+      <select
+        className="form-select"
+        onChange={(event) => setCateogry(event.target.value)}
+      >
+        <option value=""></option>
+        <option value="Clothing">Clothing</option>
+        <option value="Household">Household</option>
+      </select>
+      <UseEffectHook category={cateogry}></UseEffectHook>
+    </div>
+  );
+}
+
+function App() {
+  return <FetchingUsersData></FetchingUsersData>;
+}
+
 export default App;
